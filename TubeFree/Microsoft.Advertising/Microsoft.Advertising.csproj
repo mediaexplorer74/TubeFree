@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: C:\Users\Admin\Desktop\re\Tube Free for WP v.1.6.8.0\Microsoft.Advertising.winmd-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{17BDCA4B-4E58-4A44-8FE4-A4C40E71FBC4}</ProjectGuid>
+    <OutputType>WinMD</OutputType>
+    <AssemblyName>Microsoft.Advertising</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ApplicationVersion>255.255.255.255</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>Microsoft.Advertising</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.ObjectModel" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.InteropServices.WindowsRuntime" />
+    <Reference Include="System.Runtime.WindowsRuntime" />
+    <Reference Include="System.Runtime.WindowsRuntime.UI.Xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ErrorCode.cs" />
+    <Compile Include="WinRT\UI\__IAdErrorEventArgsPublicNonVirtuals.cs" />
+    <Compile Include="WinRT\UI\AdErrorEventArgs.cs" />
+    <Compile Include="WinRT\UI\__IExpandPropertiesPublicNonVirtuals.cs" />
+    <Compile Include="WinRT\UI\__IExpandPropertiesFactory.cs" />
+    <Compile Include="WinRT\UI\__IExpandPropertiesStatics.cs" />
+    <Compile Include="WinRT\UI\ExpandProperties.cs" />
+    <Compile Include="WinRT\UI\IAdvertisingWebBrowser.cs" />
+    <Compile Include="WinRT\UI\ExpandedCloseDelegate.cs" />
+    <Compile Include="WinRT\UI\__IPointerMoveEventArgsPublicNonVirtuals.cs" />
+    <Compile Include="WinRT\UI\PointerMoveEventArgs.cs" />
+    <Compile Include="WinRT\UI\__IPointerDownEventArgsPublicNonVirtuals.cs" />
+    <Compile Include="WinRT\UI\PointerDownEventArgs.cs" />
+    <Compile Include="WinRT\UI\__IMouseWheelEventArgsPublicNonVirtuals.cs" />
+    <Compile Include="WinRT\UI\MouseWheelEventArgs.cs" />
+    <Compile Include="WinRT\UI\__IManipulationStateChangedEventArgsPublicNonVirtu.cs" />
+    <Compile Include="WinRT\UI\__IManipulationStateChangedEventArgsFactory.cs" />
+    <Compile Include="WinRT\UI\ManipulationStateChangedEventArgs.cs" />
+    <Compile Include="WinRT\UI\__IAdControlPublicNonVirtuals.cs" />
+    <Compile Include="WinRT\UI\__IAdControlProtectedNonVirtuals.cs" />
+    <Compile Include="WinRT\UI\__IAdControlStatics.cs" />
+    <Compile Include="WinRT\UI\AdControl.cs" />
+    <Compile Include="WinRT\UI\RichMediaActionType.cs" />
+    <Compile Include="WinRT\UI\RichMediaAdState.cs" />
+    <Compile Include="WinRT\UI\InterstitialAdState.cs" />
+    <Compile Include="WinRT\UI\AdType.cs" />
+    <Compile Include="WinRT\UI\__IInterstitialAdPublicNonVirtuals.cs" />
+    <Compile Include="WinRT\UI\__IInterstitialAdProtectedNonVirtuals.cs" />
+    <Compile Include="WinRT\UI\InterstitialAd.cs" />
+    <Compile Include="WinRT\UI\IInterstitialAdController.cs" />
+    <Compile Include="WinRT\UI\VastErrorCode.cs" />
+    <Compile Include="Shared\AdType.cs" />
+    <Compile Include="Shared\WinRT\__IAdvertisementPublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\Advertisement.cs" />
+    <Compile Include="Shared\WinRT\__IAdErrorEventArgsPublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\__IAdErrorEventArgsFactory.cs" />
+    <Compile Include="Shared\WinRT\AdErrorEventArgs.cs" />
+    <Compile Include="Shared\WinRT\__IAdTagCollectionPublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\AdTagCollection.cs" />
+    <Compile Include="Shared\WinRT\__IAdPlacementPublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\__IAdPlacementFactory.cs" />
+    <Compile Include="Shared\WinRT\AdPlacement.cs" />
+    <Compile Include="Shared\WinRT\SdkType.cs" />
+    <Compile Include="Shared\WinRT\__IActivityReporterPublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\ActivityReporter.cs" />
+    <Compile Include="Shared\WinRT\__INUadPublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\NUad.cs" />
+    <Compile Include="Shared\WinRT\__IVideoResourcePublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\VideoResource.cs" />
+    <Compile Include="Shared\WinRT\__IAdExtensionPublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\__IAdExtensionFactory.cs" />
+    <Compile Include="Shared\WinRT\AdExtension.cs" />
+    <Compile Include="Shared\WinRT\__IAdPackagePublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\AdPackage.cs" />
+    <Compile Include="Shared\WinRT\__IAdPodPublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\AdPod.cs" />
+    <Compile Include="Shared\WinRT\__IAdSchedulePublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\AdSchedule.cs" />
+    <Compile Include="Shared\WinRT\__IAdScheduleResultPublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\AdScheduleResult.cs" />
+    <Compile Include="Shared\WinRT\__IAdSchedulerPublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\__IAdSchedulerStatics.cs" />
+    <Compile Include="Shared\WinRT\AdScheduler.cs" />
+    <Compile Include="Shared\WinRT\__IEventLoggingPublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\__IEventLoggingStatics.cs" />
+    <Compile Include="Shared\WinRT\EventLogging.cs" />
+    <Compile Include="Shared\WinRT\__IHttpClientPublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\HttpClient.cs" />
+    <Compile Include="Shared\WinRT\__IAdErrorReportPublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\AdErrorReport.cs" />
+    <Compile Include="Shared\WinRT\SdkInfo.cs" />
+    <Compile Include="Shared\WinRT\__ISdkInfoProviderPublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\__ISdkInfoProviderStatics.cs" />
+    <Compile Include="Shared\WinRT\SdkInfoProvider.cs" />
+    <Compile Include="Shared\WinRT\__IUserUtilsPublicNonVirtuals.cs" />
+    <Compile Include="Shared\WinRT\__IUserUtilsStatics.cs" />
+    <Compile Include="Shared\WinRT\UserUtils.cs" />
+    <Compile Include="UniversalXamlAdControl_WindowsPhone_XamlTypeInfo\__IXamlMetaDataProviderPublicNonVirtuals.cs" />
+    <Compile Include="UniversalXamlAdControl_WindowsPhone_XamlTypeInfo\XamlMetaDataProvider.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

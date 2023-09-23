@@ -1,0 +1,31 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: AngleSharp.Parser.Css.CssKeywordToken
+// Assembly: AngleSharp, Version=0.9.9.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea
+// MVID: 6D8FC1AC-F585-421F-BEC1-9105A73220DF
+// Assembly location: C:\Users\Admin\Desktop\re\Tube Free for WP v.1.6.8.0\AngleSharp.dll
+
+namespace AngleSharp.Parser.Css
+{
+  internal sealed class CssKeywordToken : CssToken
+  {
+    public CssKeywordToken(CssTokenType type, string data, TextPosition position)
+      : base(type, data, position)
+    {
+    }
+
+    public override string ToValue()
+    {
+      switch (this.Type)
+      {
+        case CssTokenType.Hash:
+          return "#" + this.Data;
+        case CssTokenType.AtKeyword:
+          return "@" + this.Data;
+        case CssTokenType.Function:
+          return this.Data + "(";
+        default:
+          return this.Data;
+      }
+    }
+  }
+}

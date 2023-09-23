@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: C:\Users\Admin\Desktop\re\Tube Free for WP v.1.6.8.0\Explode.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E398D8BD-A043-4E3C-B80B-712A66206B79}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Explode</AssemblyName>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AngleSharp">
+      <HintPath>lib\AngleSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections" />
+    <Reference Include="System.Diagnostics.Debug" />
+    <Reference Include="System.Globalization" />
+    <Reference Include="System.IO" />
+    <Reference Include="System.Linq" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Primitives" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.Extensions" />
+    <Reference Include="System.Text.Encoding" />
+    <Reference Include="System.Text.RegularExpressions" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Xml.XDocument" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="JetBrains\Annotations\CanBeNullAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\NotNullAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\ItemNotNullAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\ItemCanBeNullAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\StringFormatMethodAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\ValueProviderAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\InvokerParameterNameAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\NotifyPropertyChangedInvocatorAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\ContractAnnotationAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\LocalizationRequiredAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\CannotApplyEqualityOperatorAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\BaseTypeRequiredAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\UsedImplicitlyAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\MeansImplicitUseAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\ImplicitUseKindFlags.cs" />
+    <Compile Include="JetBrains\Annotations\ImplicitUseTargetFlags.cs" />
+    <Compile Include="JetBrains\Annotations\PublicAPIAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\InstantHandleAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\PureAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\MustUseReturnValueAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\ProvidesContextAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\PathReferenceAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\SourceTemplateAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\MacroAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcAreaMasterLocationFormatAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcAreaPartialViewLocationFormatAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcAreaViewLocationFormatAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcMasterLocationFormatAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcPartialViewLocationFormatAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcViewLocationFormatAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcActionAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcAreaAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcControllerAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcMasterAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcModelTypeAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcPartialViewAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcSuppressViewErrorAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcDisplayTemplateAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcEditorTemplateAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcTemplateAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcViewAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcViewComponentAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcViewComponentViewAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcActionSelectorAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\HtmlElementAttributesAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\HtmlAttributeValueAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorSectionAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\CollectionAccessAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\CollectionAccessType.cs" />
+    <Compile Include="JetBrains\Annotations\AssertionMethodAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AssertionConditionAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AssertionConditionType.cs" />
+    <Compile Include="JetBrains\Annotations\TerminatesProgramAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\LinqTunnelAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\NoEnumerationAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RegexPatternAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\NoReorderAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\XamlItemsControlAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\XamlItemBindingOfItemsControlAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspChildControlTypeAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspDataFieldAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspDataFieldsAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMethodPropertyAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspRequiredAttributeAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspTypePropertyAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorImportNamespaceAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorInjectionAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorDirectiveAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorPageBaseTypeAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorHelperCommonAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorLayoutAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorWriteLiteralMethodAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorWriteMethodAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorWriteMethodParameterAttribute.cs" />
+    <Compile Include="YoutubeExplode\IYoutubeClient.cs" />
+    <Compile Include="YoutubeExplode\YoutubeClient.cs" />
+    <Compile Include="YoutubeExplode\Models\Channel.cs" />
+    <Compile Include="YoutubeExplode\Models\Extensions.cs" />
+    <Compile Include="YoutubeExplode\Models\Playlist.cs" />
+    <Compile Include="YoutubeExplode\Models\PlaylistType.cs" />
+    <Compile Include="YoutubeExplode\Models\Statistics.cs" />
+    <Compile Include="YoutubeExplode\Models\ThumbnailSet.cs" />
+    <Compile Include="YoutubeExplode\Models\Video.cs" />
+    <Compile Include="YoutubeExplode\Models\MediaStreams\AudioEncoding.cs" />
+    <Compile Include="YoutubeExplode\Models\MediaStreams\AudioStreamInfo.cs" />
+    <Compile Include="YoutubeExplode\Models\MediaStreams\Container.cs" />
+    <Compile Include="YoutubeExplode\Models\MediaStreams\Extensions.cs" />
+    <Compile Include="YoutubeExplode\Models\MediaStreams\MediaStream.cs" />
+    <Compile Include="YoutubeExplode\Models\MediaStreams\MediaStreamInfo.cs" />
+    <Compile Include="YoutubeExplode\Models\MediaStreams\MediaStreamInfoSet.cs" />
+    <Compile Include="YoutubeExplode\Models\MediaStreams\MuxedStreamInfo.cs" />
+    <Compile Include="YoutubeExplode\Models\MediaStreams\VideoEncoding.cs" />
+    <Compile Include="YoutubeExplode\Models\MediaStreams\VideoQuality.cs" />
+    <Compile Include="YoutubeExplode\Models\MediaStreams\VideoResolution.cs" />
+    <Compile Include="YoutubeExplode\Models\MediaStreams\VideoStreamInfo.cs" />
+    <Compile Include="YoutubeExplode\Models\ClosedCaptions\ClosedCaption.cs" />
+    <Compile Include="YoutubeExplode\Models\ClosedCaptions\ClosedCaptionTrack.cs" />
+    <Compile Include="YoutubeExplode\Models\ClosedCaptions\ClosedCaptionTrackInfo.cs" />
+    <Compile Include="YoutubeExplode\Models\ClosedCaptions\Extensions.cs" />
+    <Compile Include="YoutubeExplode\Models\ClosedCaptions\Language.cs" />
+    <Compile Include="YoutubeExplode\Internal\Extensions.cs" />
+    <Compile Include="YoutubeExplode\Internal\Guards.cs" />
+    <Compile Include="YoutubeExplode\Internal\HttpClientEx.cs" />
+    <Compile Include="YoutubeExplode\Internal\SegmentedHttpStream.cs" />
+    <Compile Include="YoutubeExplode\Internal\UrlEx.cs" />
+    <Compile Include="YoutubeExplode\Internal\Parsers\ChannelPageParser.cs" />
+    <Compile Include="YoutubeExplode\Internal\Parsers\ClosedCaptionTrackAjaxParser.cs" />
+    <Compile Include="YoutubeExplode\Internal\Parsers\DashManifestParser.cs" />
+    <Compile Include="YoutubeExplode\Internal\Parsers\PlayerResponseParser.cs" />
+    <Compile Include="YoutubeExplode\Internal\Parsers\PlaylistAjaxParser.cs" />
+    <Compile Include="YoutubeExplode\Internal\Parsers\VideoInfoParser.cs" />
+    <Compile Include="YoutubeExplode\Internal\Parsers\VideoWatchPageParser.cs" />
+    <Compile Include="YoutubeExplode\Internal\Helpers\AudioEncodingHelper.cs" />
+    <Compile Include="YoutubeExplode\Internal\Helpers\ContainerHelper.cs" />
+    <Compile Include="YoutubeExplode\Internal\Helpers\VideoEncodingHelper.cs" />
+    <Compile Include="YoutubeExplode\Internal\Helpers\VideoQualityHelper.cs" />
+    <Compile Include="YoutubeExplode\Exceptions\VideoRequiresPurchaseException.cs" />
+    <Compile Include="YoutubeExplode\Exceptions\VideoUnavailableException.cs" />
+    <Compile Include="YoutubeExplode\Exceptions\VideoUnplayableException.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

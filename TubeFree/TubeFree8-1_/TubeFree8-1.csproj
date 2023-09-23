@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: C:\Users\Admin\Desktop\re\Tube Free for WP v.1.6.8.0\TubeFree8-1.exe-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CB8BD0F3-DA9A-48E7-B9B5-D3604EA43457}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>TubeFree8-1</AssemblyName>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>TubeFree8_1</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Explode">
+      <HintPath>lib\Explode.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleAnalytics">
+      <HintPath>lib\GoogleAnalytics.winmd</HintPath>
+    </Reference>
+    <Reference Include="GoogleAnalytics.Core">
+      <HintPath>lib\GoogleAnalytics.Core.winmd</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AdMediator.WindowsPhone81">
+      <HintPath>lib\Microsoft.AdMediator.WindowsPhone81.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Advertising">
+      <HintPath>lib\Microsoft.Advertising.winmd</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System.Collections" />
+    <Reference Include="System.Diagnostics.Debug" />
+    <Reference Include="System.Diagnostics.Tools" />
+    <Reference Include="System.IO" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.ObjectModel" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.Extensions" />
+    <Reference Include="System.Runtime.InteropServices.WindowsRuntime" />
+    <Reference Include="System.Runtime.WindowsRuntime" />
+    <Reference Include="System.Threading" />
+    <Reference Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="VideoQ.cs" />
+    <Compile Include="MainPage.cs" />
+    <Compile Include="CoreDownload.cs" />
+    <Compile Include="ModelFile.cs" />
+    <Compile Include="PageDownload.cs" />
+    <Compile Include="ListaQuality.cs" />
+    <Compile Include="ListaVideoSalvati.cs" />
+    <Compile Include="ModelQuality.cs" />
+    <Compile Include="ModelVideoSalvato.cs" />
+    <Compile Include="Home.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="TubeFree8_1_XamlTypeInfo\XamlTypeInfoProvider.cs" />
+    <Compile Include="TubeFree8_1_XamlTypeInfo\XamlSystemBaseType.cs" />
+    <Compile Include="TubeFree8_1_XamlTypeInfo\Activator.cs" />
+    <Compile Include="TubeFree8_1_XamlTypeInfo\AddToCollection.cs" />
+    <Compile Include="TubeFree8_1_XamlTypeInfo\AddToDictionary.cs" />
+    <Compile Include="TubeFree8_1_XamlTypeInfo\XamlUserType.cs" />
+    <Compile Include="TubeFree8_1_XamlTypeInfo\Getter.cs" />
+    <Compile Include="TubeFree8_1_XamlTypeInfo\Setter.cs" />
+    <Compile Include="TubeFree8_1_XamlTypeInfo\XamlMember.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
