@@ -11,6 +11,9 @@ R.E. of some (unknown) TubeFree xap.
 - Main goal is to understand how old sweet TubeFree app can easy auth (login) to Youtube. 
 - Perhaps, some secret User-Agent or Edge + WP8 magic... idk!
 
+## Status / Progress
+- Proto / Damaged / Not ready.
+
 ## TODO
 TubeFree for Windows 10 Mobile (UWP) "reconstruction" (or, lite RnD only)
 
