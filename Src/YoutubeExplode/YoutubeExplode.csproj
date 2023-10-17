@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1FC1F58E-5360-4E39-BE31-754C8C2E01F3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YoutubeExplode</RootNamespace>
+    <AssemblyName>YoutubeExplode</AssemblyName>
+    <DefaultLanguage>ru-RU</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="JetBrains\Annotations\AspChildControlTypeAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspDataFieldAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspDataFieldsAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMethodPropertyAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcActionAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcActionSelectorAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcAreaAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcAreaMasterLocationFormatAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcAreaPartialViewLocationFormatAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcAreaViewLocationFormatAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcControllerAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcDisplayTemplateAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcEditorTemplateAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcMasterAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcMasterLocationFormatAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcModelTypeAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcPartialViewAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcPartialViewLocationFormatAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcSuppressViewErrorAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcTemplateAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcViewAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcViewComponentAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcViewComponentViewAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspMvcViewLocationFormatAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspRequiredAttributeAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AspTypePropertyAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AssertionConditionAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\AssertionConditionType.cs" />
+    <Compile Include="JetBrains\Annotations\AssertionMethodAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\BaseTypeRequiredAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\CanBeNullAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\CannotApplyEqualityOperatorAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\CollectionAccessAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\CollectionAccessType.cs" />
+    <Compile Include="JetBrains\Annotations\ContractAnnotationAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\HtmlAttributeValueAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\HtmlElementAttributesAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\ImplicitUseKindFlags.cs" />
+    <Compile Include="JetBrains\Annotations\ImplicitUseTargetFlags.cs" />
+    <Compile Include="JetBrains\Annotations\InstantHandleAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\InvokerParameterNameAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\ItemCanBeNullAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\ItemNotNullAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\LinqTunnelAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\LocalizationRequiredAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\MacroAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\MeansImplicitUseAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\MustUseReturnValueAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\NoEnumerationAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\NoReorderAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\NotifyPropertyChangedInvocatorAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\NotNullAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\PathReferenceAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\ProvidesContextAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\PublicAPIAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\PureAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorDirectiveAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorHelperCommonAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorImportNamespaceAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorInjectionAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorLayoutAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorPageBaseTypeAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorSectionAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorWriteLiteralMethodAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorWriteMethodAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RazorWriteMethodParameterAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\RegexPatternAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\SourceTemplateAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\StringFormatMethodAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\TerminatesProgramAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\UsedImplicitlyAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\ValueProviderAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\XamlItemBindingOfItemsControlAttribute.cs" />
+    <Compile Include="JetBrains\Annotations\XamlItemsControlAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Exceptions\VideoRequiresPurchaseException.cs" />
+    <Compile Include="Exceptions\VideoUnavailableException.cs" />
+    <Compile Include="Exceptions\VideoUnplayableException.cs" />
+    <Compile Include="Internal\Extensions.cs" />
+    <Compile Include="Internal\Guards.cs" />
+    <Compile Include="Internal\Helpers\AudioEncodingHelper.cs" />
+    <Compile Include="Internal\Helpers\ContainerHelper.cs" />
+    <Compile Include="Internal\Helpers\VideoEncodingHelper.cs" />
+    <Compile Include="Internal\Helpers\VideoQualityHelper.cs" />
+    <Compile Include="Internal\HttpClientEx.cs" />
+    <Compile Include="Internal\Parsers\ChannelPageParser.cs" />
+    <Compile Include="Internal\Parsers\ClosedCaptionTrackAjaxParser.cs" />
+    <Compile Include="Internal\Parsers\DashManifestParser.cs" />
+    <Compile Include="Internal\Parsers\PlayerResponseParser.cs" />
+    <Compile Include="Internal\Parsers\PlaylistAjaxParser.cs" />
+    <Compile Include="Internal\Parsers\VideoInfoParser.cs" />
+    <Compile Include="Internal\Parsers\VideoWatchPageParser.cs" />
+    <Compile Include="Internal\SegmentedHttpStream.cs" />
+    <Compile Include="Internal\UrlEx.cs" />
+    <Compile Include="IYoutubeClient.cs" />
+    <Compile Include="Models\Channel.cs" />
+    <Compile Include="Models\ClosedCaptions\ClosedCaption.cs" />
+    <Compile Include="Models\ClosedCaptions\ClosedCaptionTrack.cs" />
+    <Compile Include="Models\ClosedCaptions\ClosedCaptionTrackInfo.cs" />
+    <Compile Include="Models\ClosedCaptions\Extensions.cs" />
+    <Compile Include="Models\ClosedCaptions\Language.cs" />
+    <Compile Include="Models\Extensions.cs" />
+    <Compile Include="Models\MediaStreams\AudioEncoding.cs" />
+    <Compile Include="Models\MediaStreams\AudioStreamInfo.cs" />
+    <Compile Include="Models\MediaStreams\Container.cs" />
+    <Compile Include="Models\MediaStreams\Extensions.cs" />
+    <Compile Include="Models\MediaStreams\MediaStream.cs" />
+    <Compile Include="Models\MediaStreams\MediaStreamInfo.cs" />
+    <Compile Include="Models\MediaStreams\MediaStreamInfoSet.cs" />
+    <Compile Include="Models\MediaStreams\MuxedStreamInfo.cs" />
+    <Compile Include="Models\MediaStreams\VideoEncoding.cs" />
+    <Compile Include="Models\MediaStreams\VideoQuality.cs" />
+    <Compile Include="Models\MediaStreams\VideoResolution.cs" />
+    <Compile Include="Models\MediaStreams\VideoStreamInfo.cs" />
+    <Compile Include="Models\Playlist.cs" />
+    <Compile Include="Models\PlaylistType.cs" />
+    <Compile Include="Models\Statistics.cs" />
+    <Compile Include="Models\ThumbnailSet.cs" />
+    <Compile Include="Models\Video.cs" />
+    <Compile Include="YoutubeClient.cs" />
+    <EmbeddedResource Include="Properties\YoutubeExplode.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.14</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AngleSharp\AngleSharp.csproj">
+      <Project>{e9011253-6957-45f6-9ddf-30a5f1c2e7a2}</Project>
+      <Name>AngleSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
