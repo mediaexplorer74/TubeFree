@@ -12,7 +12,10 @@ namespace TubeFreeApp
   {
     private ObservableCollection<ModelQuality> _listaQ;
 
-    public ListaQuality() => this._listaQ = new ObservableCollection<ModelQuality>();
+    public ListaQuality()
+    {
+     this._listaQ = new ObservableCollection<ModelQuality>();
+    }
 
     public ObservableCollection<ModelQuality> ListaQ
     {

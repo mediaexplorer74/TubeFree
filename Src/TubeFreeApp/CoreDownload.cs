@@ -41,6 +41,7 @@ namespace TubeFreeApp
     private StorageFile imgFil;
     private FileRandomAccessStream fs;
     private IInputStream inputStream;
+    private DispatcherTimer _timer;
 
     public event CoreDownload.FinitoEventHandler Finito;
 
@@ -145,10 +146,11 @@ namespace TubeFreeApp
       set
       {
         this._textBlockStato = value;
+        
         PropertyChangedEventHandler propertyChangedEvent = this.PropertyChangedEvent;
         if (propertyChangedEvent == null)
           return;
-        propertyChangedEvent((object) this, new PropertyChangedEventArgs(nameof (TextBlockStato)));
+        propertyChangedEvent(this, new PropertyChangedEventArgs(nameof (TextBlockStato)));
       }
     }
 
@@ -171,7 +173,12 @@ namespace TubeFreeApp
       }
     }
 
-    public double Percentuale
+        private void PropertyChangedEvent(object sender, PropertyChangedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double Percentuale
     {
       get => this._percentuale;
       set
@@ -215,13 +222,17 @@ namespace TubeFreeApp
       {
         EventHandler<object> eventHandler = new EventHandler<object>(this.timer_Tick);
         DispatcherTimer timer1 = this._timer;
+
         if (timer1 != null)
-          WindowsRuntimeMarshal.RemoveEventHandler<EventHandler<object>>(new Action<EventRegistrationToken>(timer1.remove_Tick), eventHandler);
-        this._timer = value;
+           timer1.Tick += this.timer_Tick;
+
+                this._timer = value;
         DispatcherTimer timer2 = this._timer;
         if (timer2 == null)
           return;
-        WindowsRuntimeMarshal.AddEventHandler<EventHandler<object>>(new Func<EventHandler<object>, EventRegistrationToken>(timer2.add_Tick), new Action<EventRegistrationToken>(timer2.remove_Tick), eventHandler);
+
+        timer2.Tick += this.timer_Tick;
+        timer2.Tick -= this.timer_Tick;        
       }
     }
 
@@ -251,7 +262,7 @@ namespace TubeFreeApp
         {
           //TODO
           // ISSUE: reference to a compiler-generated field
-          //CoreDownload.FinitoEventHandler finitoEvent = this.FinitoEvent;
+          CoreDownload.FinitoEventHandler finitoEvent = this.FinitoEvent;
           //if (finitoEvent != null)
           //  finitoEvent(this);
           ((Collection<CoreDownload>) App.listaDownloading).Remove(this);
@@ -261,7 +272,8 @@ namespace TubeFreeApp
         CoreDownload coreDownload = this;
         HttpResponseMessage response = coreDownload.response;
 
-        coreDownload.response = await httpClient.GetAsync(new Uri(this.Url), (HttpCompletionOption) 1);
+        coreDownload.response = await httpClient.GetAsync(new Uri(this.Url), 
+            (HttpCompletionOption) 1);
         coreDownload = (CoreDownload) null;
         if (this.TipoFile == CoreDownload.Tipo.Music)
         {
@@ -332,7 +344,7 @@ namespace TubeFreeApp
           {
             checked { num += (ulong) source.Length; }
             this.TextBlockStato = Conversions.ToString(Math.Round((double) num / 1048576.0, 10));
-            Decimal d;
+            Decimal d = default;
             try
             {
               d = Decimal.Divide(Decimal.Multiply(new Decimal(num), 100M),
@@ -347,7 +359,8 @@ namespace TubeFreeApp
             this.Percentuale = Convert.ToDouble(Decimal.Truncate(d));
             Decimal num1 = new Decimal(Math.Round((double) num / 1048576.0, 10));
             Decimal num2 = new Decimal(Math.Round((double) this.LunghezzaTotale / 1048576.0, 2));
-            this.TextBlockStato = num1.ToString("0.00").Replace(",", ".") + "MB/" + num2.ToString("0.00").Replace(",", ".") + "MB";
+            this.TextBlockStato = num1.ToString("0.00").Replace(",", ".") 
+                            + "MB/" + num2.ToString("0.00").Replace(",", ".") + "MB";
             int num3 = (int) await this.fs.WriteAsync(source);
             int num4 = await this.fs.FlushAsync() ? 1 : 0;
             await source.AsStream().FlushAsync();
@@ -379,7 +392,12 @@ namespace TubeFreeApp
       App.downloading = false;
     }
 
-    private void timer_Tick(object sender, object e)
+        private void FinitoEvent(CoreDownload obj)
+        {
+            
+        }
+
+        private void timer_Tick(object sender, object e)
     {
     }
 

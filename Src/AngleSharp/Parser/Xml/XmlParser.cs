@@ -81,7 +81,8 @@ namespace AngleSharp.Parser.Xml
 
     private XmlDocument CreateDocument(string source) => this.CreateDocument(new TextSource(source));
 
-    private XmlDocument CreateDocument(Stream source) => this.CreateDocument(new TextSource(source, this._context.Configuration.DefaultEncoding()));
+    private XmlDocument CreateDocument(Stream source) => 
+            this.CreateDocument(new TextSource(source, /*this._context.Configuration.DefaultEncoding()*/default));
 
     private XmlDocument CreateDocument(TextSource textSource) => new XmlDocument(this._context, textSource);
   }

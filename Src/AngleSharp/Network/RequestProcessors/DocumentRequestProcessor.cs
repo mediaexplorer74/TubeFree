@@ -5,6 +5,7 @@
 // Assembly location: C:\Users\Admin\Desktop\re\Tube Free for WP v.1.6.8.0\AngleSharp.dll
 
 using AngleSharp.Dom;
+using AngleSharp.Extensions;
 using AngleSharp.Services;
 using System.Threading;
 using System.Threading.Tasks;
@@ -40,7 +41,9 @@ namespace AngleSharp.Network.RequestProcessors
     {
       BrowsingContext context = new BrowsingContext(this._parentDocument.Context, Sandboxes.None);
       CreateDocumentOptions options = new CreateDocumentOptions(response, this._configuration, this._parentDocument);
-      this.ChildDocument = await this._configuration.GetFactory<IDocumentFactory>().CreateAsync((IBrowsingContext) context, options, CancellationToken.None).ConfigureAwait(false);
+      this.ChildDocument = 
+                await this._configuration.GetFactory<IDocumentFactory>()
+                .CreateAsync((IBrowsingContext) context, options, CancellationToken.None).ConfigureAwait(false);
     }
   }
 }

@@ -18,6 +18,8 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>TubeFreeApp_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>513F0CD94E9C06E04A5A463B70C706393D4B5D94</PackageCertificateThumbprint>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -91,14 +93,14 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="project.json" />
+    <None Include="TubeFreeApp_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdControl.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="CoreDownload.cs" />
-    <Compile Include="Home.xaml.cs">
+    <Compile Include="Vista\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListaQuality.cs" />
@@ -106,20 +108,17 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage1.xaml.cs">
-      <DependentUpon>MainPage1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ModelFile.cs" />
-    <Compile Include="ModelQuality.cs" />
-    <Compile Include="ModelVideoSalvato.cs" />
-    <Compile Include="PageDownload.xaml.cs">
+    <Compile Include="Models\ModelFile.cs" />
+    <Compile Include="Models\ModelQuality.cs" />
+    <Compile Include="Models\ModelVideoSalvato.cs" />
+    <Compile Include="Vista\PageDownload.xaml.cs">
       <DependentUpon>PageDownload.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings.xaml.cs">
+    <Compile Include="Vista\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VideoQ.xaml.cs">
+    <Compile Include="Controls\VideoQ.xaml.cs">
       <DependentUpon>VideoQ.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -143,7 +142,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Home.xaml">
+    <Page Include="Vista\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,24 +150,24 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage1.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="PageDownload.xaml">
+    <Page Include="Vista\PageDownload.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Settings.xaml">
+    <Page Include="Vista\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VideoQ.xaml">
+    <Page Include="Controls\VideoQ.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AngleSharp\AngleSharp.csproj">
+      <Project>{e9011253-6957-45f6-9ddf-30a5f1c2e7a2}</Project>
+      <Name>AngleSharp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YoutubeExplode\YoutubeExplode.csproj">
       <Project>{1fc1f58e-5360-4e39-be31-754c8c2e01f3}</Project>
       <Name>YoutubeExplode</Name>

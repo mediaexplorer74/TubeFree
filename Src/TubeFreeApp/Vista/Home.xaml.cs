@@ -1,51 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using Microsoft.VisualBasic.CompilerServices;
-using System.CodeDom.Compiler;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.ApplicationModel.Store;
 using Windows.Graphics.Display;
 using Windows.Media.SpeechRecognition;
-using Windows.Phone.UI.Input;
 using Windows.System;
-using Windows.UI.ViewManagement;
-//using Windows.UI.Xaml;
-//using Windows.UI.Xaml.Controls;
-//using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Media.Imaging;
 using YoutubeExplode;
 using YoutubeExplode.Models;
 using YoutubeExplode.Models.MediaStreams;
+using System.Diagnostics;
+using System.Collections.ObjectModel;
+using Microsoft.VisualBasic.CompilerServices;
+using Windows.UI.Xaml.Media;
 
 namespace TubeFreeApp
 {
-    public sealed partial class Home : Page//, IComponentConnector
+    public sealed partial class Home : Page
     {
         private string uriBrowser;
         private string richiestaLink;
-        //private StatusBar bar1;
         private SpeechRecognizer reco;
         private Video videoInformazioni;
         private bool _contentLoaded;
         private DispatcherTimer timerPubli;
+        private WebView WebBrowser1;
+        private Control Share;
+        private Control down;
+        private Image ctrlQ;
+        private Storyboard MyStoryboard1;
+        private Storyboard MyStoryboard;
+        private ToggleButton speech;
+        private ToggleButton home;
 
         //[field: AccessedThroughProperty("banner")]
         //public virtual AdControl banner { get; set; }
@@ -119,13 +111,16 @@ namespace TubeFreeApp
             WebView webBrowser1 = this.WebBrowser1;
             
             // ISSUE: method pointer
-            WindowsRuntimeMarshal.AddEventHandler<TypedEventHandler<WebView, object>>(
-                new Func<TypedEventHandler<WebView, object>, EventRegistrationToken>(
-                    webBrowser1.add_ContainsFullScreenElementChanged), 
-                new Action<EventRegistrationToken>(
-                    webBrowser1.remove_ContainsFullScreenElementChanged),
-                new TypedEventHandler<WebView, object>((object)this,
-                __methodptr(browser_fullscreen_changed)));
+            //WindowsRuntimeMarshal.AddEventHandler<TypedEventHandler<WebView, object>>(
+            //    new Func<TypedEventHandler<WebView, object>, EventRegistrationToken>(
+            //        webBrowser1.add_ContainsFullScreenElementChanged), 
+            //    new Action<EventRegistrationToken>(
+            //        webBrowser1.remove_ContainsFullScreenElementChanged),
+            //    new TypedEventHandler<WebView, object>((object)this,
+            //    __methodptr(browser_fullscreen_changed)));
+
+            webBrowser1.ContainsFullScreenElementChanged += browser_fullscreen_changed;
+            webBrowser1.ContainsFullScreenElementChanged -= browser_fullscreen_changed;
 
             //if (!((ICollection<UIElement>)((Panel)this.contenitore).Children).Contains(
             //    (UIElement)this.banner))
@@ -133,7 +128,7 @@ namespace TubeFreeApp
             //    ((ICollection<UIElement>)((Panel)this.contenitore).Children).Add(
             //        (UIElement)this.banner);
             //}
-            
+
             App.CreaCompatibilita();
         }
 
@@ -148,11 +143,11 @@ namespace TubeFreeApp
             else
             {
                 DisplayInformation.AutoRotationPreferences = (DisplayOrientations)2;
-                ((UIElement)this.banner).Visibility = (Visibility)0;
+                //((UIElement)this.banner).Visibility = (Visibility)0;
                 ((UIElement)this.BottomAppBar).Visibility = ((Visibility)0);
                 try
                 {
-                    this.banner.Resume();
+                    //this.banner.Resume();
                 }
                 catch (Exception ex)
                 {
@@ -162,32 +157,6 @@ namespace TubeFreeApp
             }
         }
 
-        protected virtual void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            WindowsRuntimeMarshal.RemoveEventHandler<EventHandler<object>>(
-                new Action<EventRegistrationToken>(this.intersitial.remove_AdReady),
-                new EventHandler<object>(this.ad_ready));
-            WindowsRuntimeMarshal.RemoveEventHandler<EventHandler<AdErrorEventArgs>>(
-                new Action<EventRegistrationToken>(this.intersitial.remove_ErrorOccurred),
-                new EventHandler<AdErrorEventArgs>(this.ad_error));
-            WindowsRuntimeMarshal.RemoveEventHandler<EventHandler<RoutedEventArgs>>(
-                new Action<EventRegistrationToken>(this.banner.remove_AdRefreshed),
-                new EventHandler<RoutedEventArgs>(this.ad_refreshed));
-            WindowsRuntimeMarshal.RemoveEventHandler<EventHandler<AdErrorEventArgs>>(
-                new Action<EventRegistrationToken>(this.banner.remove_ErrorOccurred), 
-                new EventHandler<AdErrorEventArgs>(this.ad_error_occurred));
-            try
-            {
-                this.timerPubli.Stop();
-                this.timerPubli = (DispatcherTimer)null;
-            }
-            catch (Exception ex)
-            {
-                ProjectData.SetProjectError(ex);
-                ProjectData.ClearProjectError();
-            }
-            base.OnNavigatedFrom(e);
-        }
 
 
         private void HardwareButtons_BackPressed(object sender, EventArgs e)
@@ -217,6 +186,7 @@ namespace TubeFreeApp
                 ((Control)this.Share).IsEnabled = (false);
             try
             {
+                //TODO
                 if (((CompositeTransform)(
                     (UIElement)this.ctrlQ).RenderTransform).TranslateY >= -700.0)
                 {
@@ -226,11 +196,12 @@ namespace TubeFreeApp
                 }
                 else
                 {
-                    ((ContentControl)MainPage.current.myFrame).Content.GetType();
-                    if (!((ContentControl)MainPage.current.myFrame)
-                        .Content.GetType().Equals(typeof(Home)))
+                    //TODO
+                    //((ContentControl)MainPage.myFrame).Content.GetType();
+                    if (true)//(!((ContentControl)MainPage.current.myFrame)
+                       // .Content.GetType().Equals(typeof(Home)))
                     {
-                        MainPage.current.myFrame.GoBack();
+                        //MainPage.Frame.GoBack();
                         this.WebBrowser1.Navigate(new Uri(this.uriBrowser));
                         //e.put_Handled(true);
                         return;
@@ -281,9 +252,12 @@ namespace TubeFreeApp
                     Home home = this;
                     Video videoInformazioni = home.videoInformazioni;
 
-                    home.videoInformazioni = await youtubeClient.GetVideoAsync(strArray[1]);
+                    //TODO
+                    //home.videoInformazioni = await youtubeClient.GetVideoAsync(strArray[1]);
                     home = (Home)null;
-                    MediaStreamInfoSet streamInfosAsync = 
+
+                    //MediaStreamInfoSet 
+                    var streamInfosAsync = 
                         await youtubeClient.GetVideoMediaStreamInfosAsync(strArray[1]);
 
                     try
@@ -339,16 +313,17 @@ namespace TubeFreeApp
                         IEnumerator<AudioStreamInfo> enumerator = default;
                         enumerator?.Dispose();
                     }
-                    this.ctrlQ.title.Text = 
-                        (this.videoInformazioni.Title);
-                    this.ctrlQ.thumb.Source = 
-                        ((ImageSource)new BitmapImage(
-                            new Uri(this.videoInformazioni.Thumbnails.MediumResUrl, 
-                            UriKind.RelativeOrAbsolute)));
+                    //this.ctrlQ.title.Text = 
+                    //    (this.videoInformazioni.Title);
+                    //this.ctrlQ.thumb.Source = 
+                    //    ((ImageSource)new BitmapImage(
+                    //        new Uri(this.videoInformazioni.Thumbnails.MediumResUrl, 
+                    //        UriKind.RelativeOrAbsolute)));
 
-                    this.ctrlQ.UrlImage = this.videoInformazioni.Thumbnails.MediumResUrl;
-                    ((ItemsControl)this.ctrlQ.listPickerQuality).ItemsSource = 
-                        ((object)modelQualityList);
+                    //this.ctrlQ.UrlImage = this.videoInformazioni.Thumbnails.MediumResUrl;
+                   
+                    //((ItemsControl)this.ctrlQ.listPickerQuality).ItemsSource = 
+                    //    ((object)modelQualityList);
 
                     ((UIElement)this.down).Visibility = ((Visibility)0);
                 }
@@ -375,7 +350,8 @@ namespace TubeFreeApp
 
                 this.WebBrowser1.Navigate(new Uri("https://m.youtube.com/results?q=" 
                     + (await this.reco.RecognizeWithUIAsync()).Text));
-                ((ToggleButton)this.speech).put_IsChecked(new bool?(false));
+
+                ((ToggleButton)this.speech).IsChecked = new bool?(false);
             }
             catch (Exception ex)
             {
@@ -387,14 +363,14 @@ namespace TubeFreeApp
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             this.WebBrowser1.Navigate(new Uri("https://m.youtube.com/"));
-            ((ToggleButton)this.home).put_IsChecked(new bool?(false));
+            ((ToggleButton)this.home).IsChecked = new bool?(false);
         }
 
         private void Download_Click(object sender, RoutedEventArgs e)
         {
-            ((UIElement)this.BottomAppBar).put_Visibility((Visibility)1);
+            ((UIElement)this.BottomAppBar).Visibility = (Visibility)1;
             this.MyStoryboard.Begin();
-            ((ToggleButton)this.down).put_IsChecked(new bool?(false));
+            ((ToggleButton)this.down).IsChecked = new bool?(false);
         }
 
         private async void RiceviAzione(VideoQ.Azione azione, ModelQuality quality)
@@ -402,12 +378,12 @@ namespace TubeFreeApp
             if (azione == VideoQ.Azione.Scarica)
             {
                 CoreDownload coreDownload1 = new CoreDownload(quality.UrlVideo, 
-                    this.ctrlQ.title.Text);
+                    /*this.ctrlQ.title.Text*/default);
                 coreDownload1.TipoFile = Operators.CompareString(
                     quality.Quality, "AUDIO", false) != 0 
                     ? CoreDownload.Tipo.Youtube : CoreDownload.Tipo.Music;
 
-                coreDownload1.Immagine = this.ctrlQ.UrlImage;
+                //coreDownload1.Immagine = this.ctrlQ.UrlImage;
                 coreDownload1.Finito += new CoreDownload.FinitoEventHandler(App.Fine);
                 ((Collection<CoreDownload>)App.listaDownloading).Add(coreDownload1);
                 if (!App.downloading)
@@ -420,22 +396,24 @@ namespace TubeFreeApp
                     App.CodaDownload.Enqueue(coreDownload1);
                 }
 
-                CoreDownload coreDownload2 = new CoreDownload(this.ctrlQ.UrlImage,
-                    this.ctrlQ.title.Text);
-                coreDownload2.TipoFile = CoreDownload.Tipo.Foto;
-                coreDownload2.Immagine = this.ctrlQ.UrlImage;
-                coreDownload2.Finito += new CoreDownload.FinitoEventHandler(App.Fine);
+                //CoreDownload coreDownload2 = new CoreDownload(this.ctrlQ.UrlImage,
+                //    this.ctrlQ.title.Text);
+                //coreDownload2.TipoFile = CoreDownload.Tipo.Foto;
+                //coreDownload2.Immagine = this.ctrlQ.UrlImage;
+                //coreDownload2.Finito += new CoreDownload.FinitoEventHandler(App.Fine);
                 if (!App.downloading)
                 {
                     App.downloading = true;
-                    coreDownload2.Scarica();
+                    //  coreDownload2.Scarica();
                 }
                 else
-                    App.CodaDownload.Enqueue(coreDownload2);
+                {
+                    //App.CodaDownload.Enqueue(coreDownload2);
+                }
             }
             Application current = Application.Current;
             this.MyStoryboard1.Begin();
-            ((UIElement)this.BottomAppBar).Visibility((Visibility) = 0);
+            //((UIElement)this.BottomAppBar).Visibility((Visibility) = 0);
         }
 
         private void click_video_page(object sender, RoutedEventArgs e)
@@ -463,8 +441,8 @@ namespace TubeFreeApp
             }
             catch (Exception ex)
             {
-                ProjectData.SetProjectError(ex);
-                ProjectData.ClearProjectError();
+                Debug.WriteLine("[ex] " + ex.Message);
+       
             }
         }
 
@@ -475,69 +453,7 @@ namespace TubeFreeApp
                 + CurrentApp.AppId.ToString())) ? 1 : 0;
         }
 
-        private void ad_error(object sender, AdErrorEventArgs e)
-        {
-        }
-
-        private void ad_ready(object sender, object e)
-        {
-            this.intersitial.Show();
-        }
-
-        private void ad_refreshed(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (this.timerPubli.IsEnabled)
-                {
-                    this.timerPubli.Stop();
-                    this.timerPubli.Start();
-                }
-                else
-                    this.timerPubli.Start();
-            }
-            catch (Exception ex)
-            {
-                ProjectData.SetProjectError(ex);
-                ProjectData.ClearProjectError();
-            }
-            // ISSUE: reference to a compiler-generated method
-            // ISSUE: reference to a compiler-generated method
-            EasyTracker.GetTracker().SendView("New Banner 8.1 New");
-        }
-
-        private void ad_error_occurred(object sender, AdErrorEventArgs e)
-        {
-            try
-            {
-                if (this.timerPubli.IsEnabled)
-                {
-                    this.timerPubli.Stop();
-                    this.timerPubli.Start();
-                }
-                else
-                    this.timerPubli.Start();
-            }
-            catch (Exception ex)
-            {
-                ProjectData.SetProjectError(ex);
-                ProjectData.ClearProjectError();
-            }
-        }
-
-        private void timerPubli_Tick(object sender, object e)
-        {
-            try
-            {
-                this.banner.Refresh();
-            }
-            catch (Exception ex)
-            {
-                ProjectData.SetProjectError(ex);
-                ProjectData.ClearProjectError();
-            }
-        }
-                
-    }
+                     
+    }//class end
 }
 

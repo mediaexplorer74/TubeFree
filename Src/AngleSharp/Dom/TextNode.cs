@@ -48,18 +48,22 @@ namespace AngleSharp.Dom
 
     public string Text
     {
+            
       get
       {
+        TextNode textNode1 = default;
         Node previousSibling = this.PreviousSibling;
-        textNode = this;
+        textNode1 = this;
         StringBuilder sb = Pool.NewStringBuilder();
-        for (; previousSibling is TextNode; previousSibling = textNode.PreviousSibling)
-          textNode = (TextNode) previousSibling;
-        do
-        {
-          sb.Append(textNode.Data);
-        }
-        while (textNode.NextSibling is TextNode textNode);
+
+        for (; previousSibling is TextNode; previousSibling = textNode1.PreviousSibling)
+          textNode1 = (TextNode) previousSibling;
+        //RnD
+        //do
+        //{
+        //  sb.Append(textNode1.Data);
+        //}
+        //while (textNode1.NextSibling is TextNode textNode1);
         return sb.ToPool();
       }
     }

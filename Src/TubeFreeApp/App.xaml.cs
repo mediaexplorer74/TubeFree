@@ -7,15 +7,9 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.VisualBasic.CompilerServices;
-using System.CodeDom.Compiler;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Globalization;
 using Windows.Storage.Streams;
-using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media.Animation;
-
 
 
 namespace TubeFreeApp
@@ -23,7 +17,7 @@ namespace TubeFreeApp
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Application
+    public sealed partial class App : Application
     {
 
         public static Queue<CoreDownload> CodaDownload = new Queue<CoreDownload>();
@@ -34,20 +28,22 @@ namespace TubeFreeApp
         public static string musicFolder = "music";
         public static string videoFolder = "video";
         public static string picturFolder = "foto";
+
         public static ObservableCollection<ModelFile> 
             listaMusica = new ObservableCollection<ModelFile>();
+        
         public static ObservableCollection<ModelFile> 
             listaVideo = new ObservableCollection<ModelFile>();
+        
         public static string pubcenterAppID = "9wzdncrd8hmp";
         public static string pubcenterBannerID = "1100051284";
         public static string idApplicationPubcenter = "9fc894b7-04fc-4888-8f33-5d8d9feba034";
         public static string unitIdPubcenter = "11655184";
         public static object smaatoAdSpace = (object)"130365042";
         public static object smaatoPublisherId = (object)"1100038379";
-        private TransitionCollection _transitions;
-        private bool _contentLoaded;
-        //private XamlTypeInfoProvider _provider;
-
+        
+        //private TransitionCollection _transitions;
+        
 
 
         /// <summary>
@@ -56,16 +52,12 @@ namespace TubeFreeApp
         /// </summary>
         public App()
         {
-            InitializeComponent();
+            //Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
+            //    Microsoft.ApplicationInsights.WindowsCollectors.Metadata |
+            //    Microsoft.ApplicationInsights.WindowsCollectors.Session);
 
-            Suspending += OnSuspending;
-
-            /*WindowsRuntimeMarshal.AddEventHandler<SuspendingEventHandler>(
-                new Func<SuspendingEventHandler, EventRegistrationToken>(
-                    ((Application)this).add_Suspending),
-                new Action<EventRegistrationToken>(((Application)this).remove_Suspending),
-                new SuspendingEventHandler(this.OnSuspending));
-            this.InitializeComponent();*/
+            this.InitializeComponent();
+            this.Suspending += OnSuspending;          
         }
 
         /// <summary>
@@ -105,6 +97,9 @@ namespace TubeFreeApp
             }
             // Ensure the current window is active
             Window.Current.Activate();
+
+            //RnD
+            this.InizializzaCartelle();
         }
 
         /// <summary>
@@ -151,43 +146,7 @@ namespace TubeFreeApp
             App.CaricaListaVideo();
         }
 
-        /*
-        protected virtual void OnLaunched(LaunchActivatedEventArgs e)
-        {
-            if (!(Window.Current.Content is Frame frame))
-            {
-                frame = new Frame();
-                frame.CacheSize = (1);
-                ((FrameworkElement)frame).Language = (ApplicationLanguages.Languages[0]);
-                ApplicationExecutionState previousExecutionState = e.PreviousExecutionState;
-                Window.Current.Content = ((UIElement)frame);
-            }
-            if (((ContentControl)frame).Content == null)
-            {
-                if (((ContentControl)frame).ContentTransitions != null)
-                {
-                    this._transitions = new TransitionCollection();
-                    try
-                    {
-                        foreach (Transition contentTransition in (IEnumerable<Transition>)((ContentControl)frame).ContentTransitions)
-                            ((ICollection<Transition>)this._transitions).Add(contentTransition);
-                    }
-                    finally
-                    {
-                        IEnumerator<Transition> enumerator;
-                        enumerator?.Dispose();
-                    }
-                }
-              ((ContentControl)frame).put_ContentTransitions((TransitionCollection)null);
-                WindowsRuntimeMarshal.AddEventHandler<NavigatedEventHandler>(new Func<NavigatedEventHandler, EventRegistrationToken>(frame.add_Navigated), new Action<EventRegistrationToken>(frame.remove_Navigated), new NavigatedEventHandler(this.RootFrame_FirstNavigated));
-                if (!frame.Navigate(typeof(MainPage), (object)e.Arguments))
-                    throw new Exception("Failed to create initial page");
-            }
-            Window.Current.Activate();
-            this.InizializzaCartelle();
-        }
-        */
-
+     
 
         // RootFrame_FirstNavigated
         private void RootFrame_FirstNavigated(object sender, NavigationEventArgs e)
@@ -374,6 +333,7 @@ namespace TubeFreeApp
                 ProjectData.ClearProjectError();
             }
         }//CaricaListaMusica
+
 
         // CaricaListaVideo
         public static async void CaricaListaVideo()

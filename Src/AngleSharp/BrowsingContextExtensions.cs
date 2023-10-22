@@ -5,6 +5,7 @@
 // Assembly location: C:\Users\Admin\Desktop\re\Tube Free for WP v.1.6.8.0\AngleSharp.dll
 
 using AngleSharp.Dom;
+using AngleSharp.Extensions;
 using AngleSharp.Network;
 using AngleSharp.Services;
 using System;

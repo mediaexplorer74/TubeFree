@@ -6,6 +6,7 @@
 
 using AngleSharp.Dom;
 using AngleSharp.Dom.Html;
+using AngleSharp.Extensions;
 using AngleSharp.Services;
 using System.IO;
 using System.Threading;
@@ -59,8 +60,10 @@ namespace AngleSharp.Parser.Html
       HtmlDomBuilder htmlDomBuilder = new HtmlDomBuilder(document);
       if (context == null)
         return (INodeList) htmlDomBuilder.Parse(this._options).ChildNodes;
+
       if (!(context is Element context1))
-        context1 = (Element) document.Options.GetFactory<IElementFactory<HtmlElement>>().Create((Document) document, context.LocalName, context.Prefix);
+        context1 = (Element) document.Options.GetFactory<IElementFactory<HtmlElement>>().Create(
+            (Document) document, context.LocalName, context.Prefix);
       return htmlDomBuilder.ParseFragment(this._options, context1).DocumentElement.ChildNodes;
     }
 
@@ -77,7 +80,7 @@ namespace AngleSharp.Parser.Html
     private HtmlDocument CreateDocument(string source) => this.CreateDocument(new TextSource(source));
 
     private HtmlDocument CreateDocument(Stream source) => this.CreateDocument(
-        new TextSource(source, this._context.Configuration.DefaultEncoding()));
+        new TextSource(source, /*this._context.Configuration.DefaultEncoding()*/default));
 
     private HtmlDocument CreateDocument(TextSource textSource) => new HtmlDocument(this._context, textSource);
   }
