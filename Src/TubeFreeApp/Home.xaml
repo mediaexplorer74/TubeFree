@@ -1,13 +1,72 @@
-﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-      xmlns:local="using:TubeFreeApp" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      x:Class="TubeFreeApp.Home">
-    <Background>
+﻿<Page  
+    x:Class="TubeFreeApp.Home"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns:local="using:TubeFreeApp"
+     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     mc:Ignorable="d"
+     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    >
+
+    <!--Background>
         <ThemeResource ResourceKey="ApplicationPageBackgroundThemeBrush" />
-    </Background>
-    <BottomAppBar>
+    </Background-->
+
+    <!--Resources-->
+    <!--ResourceDictionary>
+        <Storyboard x:Name="MyStoryboard">
+            <Children>
+                <TimelineCollection>
+                    <DoubleAnimationUsingKeyFrames
+                         SpeedRatio="2" 
+                         TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                         TargetName="ctrlQ">
+                        <KeyFrames>
+                            <DoubleKeyFrameCollection>
+                                <EasingDoubleKeyFrame KeyTime="1,15" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="1,55" Value="-50" />
+                                <EasingDoubleKeyFrame KeyTime="1,95" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="2,451" Value="-30" />
+                                <EasingDoubleKeyFrame KeyTime="2,862" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="3,273" Value="-10" />
+                                <EasingDoubleKeyFrame KeyTime="3,684" Value="0" />
+                            </DoubleKeyFrameCollection>
+                        </KeyFrames>
+                    </DoubleAnimationUsingKeyFrames>
+                    <DoubleAnimation From="0" To="1" 
+                                      TargetName="ctrlQ"
+                                      TargetProperty="(UIElement.Opacity)" 
+                                      Duration="0,75" />
+                </TimelineCollection>
+            </Children>
+        </Storyboard>
+        
+        <Storyboard x:Name="MyStoryboard1" TargetName="ctrlQ">
+            <Children>
+                <TimelineCollection>
+                    <DoubleAnimationUsingKeyFrames 
+                         SpeedRatio="2"
+                      TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" TargetName="ctrlQ">
+                        <KeyFrames>
+                            <DoubleKeyFrameCollection>
+                                <EasingDoubleKeyFrame KeyTime="0,95" Value="-800" />
+                            </DoubleKeyFrameCollection>
+                        </KeyFrames>
+                    </DoubleAnimationUsingKeyFrames>
+                    <DoubleAnimation From="1"
+                                      To="0" 
+                                      TargetName="ctrlQ"
+                                      TargetProperty="(UIElement.Opacity)" 
+                                      Duration="0,55" />
+                </TimelineCollection>
+            </Children>
+        </Storyboard>
+    </ResourceDictionary-->
+    <!--/Resources-->
+
+
+    <!--AppBar>
         <CommandBar x:Name="botAppBar" 
                     Visibility="Visible" Opacity="1"
                     ClosedDisplayMode="Minimal">
@@ -41,83 +100,39 @@
                 </CommandBarElementCollection>
             </SecondaryCommands>
         </CommandBar>
-    </BottomAppBar>
-    <Content>
+    </AppBar-->
+    
+    <!--Content-->
         <Grid x:Name="contenitore">
-            <Resources>
-                <ResourceDictionary>
-                    <Storyboard x:Name="MyStoryboard">
-                        <Children>
-                            <TimelineCollection>
-                                <DoubleAnimationUsingKeyFrames
-                                    SpeedRatio="2" 
-                                    TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
-                                    TargetName="ctrlQ">
-                                    <KeyFrames>
-                                        <DoubleKeyFrameCollection>
-                                            <EasingDoubleKeyFrame KeyTime="1,15" Value="0" />
-                                            <EasingDoubleKeyFrame KeyTime="1,55" Value="-50" />
-                                            <EasingDoubleKeyFrame KeyTime="1,95" Value="0" />
-                                            <EasingDoubleKeyFrame KeyTime="2,451" Value="-30" />
-                                            <EasingDoubleKeyFrame KeyTime="2,862" Value="0" />
-                                            <EasingDoubleKeyFrame KeyTime="3,273" Value="-10" />
-                                            <EasingDoubleKeyFrame KeyTime="3,684" Value="0" />
-                                        </DoubleKeyFrameCollection>
-                                    </KeyFrames>
-                                </DoubleAnimationUsingKeyFrames>
-                                <DoubleAnimation From="0" To="1" 
-                                                 TargetName="ctrlQ"
-                                                 TargetProperty="(UIElement.Opacity)" 
-                                                 Duration="0,75" />
-                            </TimelineCollection>
-                        </Children>
-                    </Storyboard>
-                    <Storyboard x:Name="MyStoryboard1" TargetName="ctrlQ">
-                        <Children>
-                            <TimelineCollection>
-                                <DoubleAnimationUsingKeyFrames 
-                                    SpeedRatio="2"
-                                 TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" TargetName="ctrlQ">
-                                    <KeyFrames>
-                                        <DoubleKeyFrameCollection>
-                                            <EasingDoubleKeyFrame KeyTime="0,95" Value="-800" />
-                                        </DoubleKeyFrameCollection>
-                                    </KeyFrames>
-                                </DoubleAnimationUsingKeyFrames>
-                                <DoubleAnimation From="1"
-                                                 To="0" 
-                                                 TargetName="ctrlQ"
-                                                 TargetProperty="(UIElement.Opacity)" 
-                                                 Duration="0,55" />
-                            </TimelineCollection>
-                        </Children>
-                    </Storyboard>
-                </ResourceDictionary>
-            </Resources>
-            <Children>
-                <UIElementCollection>
+            
+                
+            <!--Children-->
+                <!--UIElementCollection-->
                     <WebView x:Name="WebBrowser1" 
                              HorizontalAlignment="Stretch"
                              VerticalAlignment="Stretch" 
-                             Width="не число"
-                             Height="не число"
+                             Width="100"
+                             Height="100"
                              Source="https://m.youtube.com" />
+                        
                     <local:VideoQ x:Name="ctrlQ"
                                   x:FieldModifier="public"
                                   Height="800" HorizontalAlignment="Left"
                                   Margin="0,0,0,0" VerticalAlignment="Top" 
-                                  Opacity="0">
-                        <Width>
+                                  Opacity="0"
+                                  >
+                        <!--Width>
                             <Binding ElementName="contenitore" Path="ActualWidth" />
-                        </Width>
-                        <RenderTransform>
+                        </Width-->
+                        
+                        <!--RenderTransform>
                             <CompositeTransform TranslateY="-800" />
-                        </RenderTransform>
+                        </RenderTransform-->
                     </local:VideoQ>
-                </UIElementCollection>
-            </Children>
+                <!--/UIElementCollection-->
+            <!--/Children-->
         </Grid>
-    </Content>
+    <!--/Content-->
 </Page>
     
 <!--Page

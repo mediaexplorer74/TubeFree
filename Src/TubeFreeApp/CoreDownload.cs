@@ -1,10 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: TubeFree8_1.CoreDownload
-// Assembly: TubeFree8-1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: B4DCF786-D976-4451-B6A4-B664A1A9ABDC
-// Assembly location: C:\Users\Admin\Desktop\re\Tube Free for WP v.1.6.8.0\TubeFree8-1.exe
-
-using Microsoft.VisualBasic.CompilerServices;
+﻿using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,8 +12,9 @@ using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.Web.Http;
 using Windows.Web.Http.Headers;
+using Buffer = Windows.Storage.Streams.Buffer;
 
-namespace TubeFree8_1
+namespace TubeFreeApp
 {
   public class CoreDownload : INotifyPropertyChanged
   {
@@ -60,12 +55,14 @@ namespace TubeFree8_1
       get => this._Nome;
       set
       {
-        string str = new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars());
+        string str = new string(Path.GetInvalidFileNameChars())
+                    + new string(Path.GetInvalidPathChars());
         int index = 0;
         while (index < str.Length)
         {
           char ch = str[index];
-          if (Operators.CompareString(Conversions.ToString(ch), ":", false) == 0 | Operators.CompareString(Conversions.ToString(ch), "!", false) == 0)
+          if (Operators.CompareString(Conversions.ToString(ch), ":", false) == 0
+                        | Operators.CompareString(Conversions.ToString(ch), "!", false) == 0)
             value = value.Replace(Conversions.ToString(ch), " ");
           value = value.Replace(Conversions.ToString(ch), "");
           checked { ++index; }
@@ -79,16 +76,23 @@ namespace TubeFree8_1
       get => this._titolo;
       set
       {
-        string str = new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars());
+        string str = new string(Path.GetInvalidFileNameChars()) 
+                    + new string(Path.GetInvalidPathChars());
         int index = 0;
         while (index < str.Length)
         {
-          char ch = str[index];
-          if (Operators.CompareString(Conversions.ToString(ch), ":", false) == 0 | Operators.CompareString(Conversions.ToString(ch), "!", false) == 0)
-            value = value.Replace(Conversions.ToString(ch), " ");
-          value = value.Replace(Conversions.ToString(ch), "");
-          checked { ++index; }
+            char ch = str[index];
+
+            if (Operators.CompareString(Conversions.ToString(ch), ":", false) == 0
+                            | Operators.CompareString(Conversions.ToString(ch), "!", false) == 0)
+            {
+                value = value.Replace(Conversions.ToString(ch), " ");
+            }
+
+            value = value.Replace(Conversions.ToString(ch), "");
+            checked { ++index; }
         }
+
         this._titolo = value;
       }
     }
@@ -204,7 +208,7 @@ namespace TubeFree8_1
       set => this._tipoFile = value;
     }
 
-    private virtual DispatcherTimer timer
+    public virtual DispatcherTimer timer
     {
       get => this._timer;
       [MethodImpl((MethodImplOptions) 32)] set
@@ -230,7 +234,7 @@ namespace TubeFree8_1
       this.timer = new DispatcherTimer();
       this.Url = url;
       this.Titolo = name;
-      this.timer.put_Interval(TimeSpan.FromMilliseconds(100.0));
+      this.timer.Interval = TimeSpan.FromMilliseconds(100.0);
       this.timer.Start();
     }
 
@@ -239,65 +243,81 @@ namespace TubeFree8_1
       try
       {
         HttpClient httpClient = new HttpClient();
-        ((ICollection<HttpProductInfoHeaderValue>) httpClient.DefaultRequestHeaders.UserAgent).Add(new HttpProductInfoHeaderValue("Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv: 1.8) Gecko/20051111 Firefox/1.5"));
+        ((ICollection<HttpProductInfoHeaderValue>) httpClient.DefaultRequestHeaders.UserAgent)
+         .Add(new HttpProductInfoHeaderValue(
+          "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv: 1.8) Gecko/20051111 Firefox/1.5"));
         ((IDictionary<string, string>) httpClient.DefaultRequestHeaders).Add("Method", "GET");
         if (this.Url == null | Operators.CompareString(this.Url, "", false) == 0)
         {
+          //TODO
           // ISSUE: reference to a compiler-generated field
-          CoreDownload.FinitoEventHandler finitoEvent = this.FinitoEvent;
-          if (finitoEvent != null)
-            finitoEvent(this);
+          //CoreDownload.FinitoEventHandler finitoEvent = this.FinitoEvent;
+          //if (finitoEvent != null)
+          //  finitoEvent(this);
           ((Collection<CoreDownload>) App.listaDownloading).Remove(this);
           App.downloading = false;
           return;
         }
         CoreDownload coreDownload = this;
         HttpResponseMessage response = coreDownload.response;
+
         coreDownload.response = await httpClient.GetAsync(new Uri(this.Url), (HttpCompletionOption) 1);
         coreDownload = (CoreDownload) null;
         if (this.TipoFile == CoreDownload.Tipo.Music)
         {
           coreDownload = this;
           StorageFolder storageFolder = coreDownload.storageFolder;
-          coreDownload.storageFolder = (StorageFolder) await App.localFolder.GetItemAsync(App.musicFolder);
+          coreDownload.storageFolder = (StorageFolder)
+                        await App.localFolder.GetItemAsync(App.musicFolder);
           coreDownload = (CoreDownload) null;
           coreDownload = this;
           StorageFile imgFil = coreDownload.imgFil;
-          coreDownload.imgFil = await this.storageFolder.CreateFileAsync(this.Titolo + ".mp3", (CreationCollisionOption) 1);
+          coreDownload.imgFil = await this.storageFolder.CreateFileAsync(this.Titolo + ".mp3",
+              (CreationCollisionOption) 1);
           coreDownload = (CoreDownload) null;
           coreDownload = this;
           FileRandomAccessStream fs = coreDownload.fs;
-          coreDownload.fs = (FileRandomAccessStream) await this.imgFil.OpenAsync((FileAccessMode) 1);
+          coreDownload.fs = (FileRandomAccessStream) 
+                        await this.imgFil.OpenAsync((FileAccessMode) 1);
           coreDownload = (CoreDownload) null;
         }
         else if (this.TipoFile == CoreDownload.Tipo.Youtube)
         {
           coreDownload = this;
           StorageFolder storageFolder = coreDownload.storageFolder;
-          coreDownload.storageFolder = (StorageFolder) await App.localFolder.GetItemAsync(App.videoFolder);
+
+          coreDownload.storageFolder = (StorageFolder)
+                        await App.localFolder.GetItemAsync(App.videoFolder);
           coreDownload = (CoreDownload) null;
           coreDownload = this;
           StorageFile imgFil = coreDownload.imgFil;
-          coreDownload.imgFil = await this.storageFolder.CreateFileAsync(this.Titolo + ".mp4", (CreationCollisionOption) 1);
+          coreDownload.imgFil = await this.storageFolder.CreateFileAsync(
+              this.Titolo + ".mp4", (CreationCollisionOption) 1);
           coreDownload = (CoreDownload) null;
           coreDownload = this;
           FileRandomAccessStream fs = coreDownload.fs;
-          coreDownload.fs = (FileRandomAccessStream) await this.imgFil.OpenAsync((FileAccessMode) 1);
+
+          coreDownload.fs = (FileRandomAccessStream) 
+                        await this.imgFil.OpenAsync((FileAccessMode) 1);
+
           coreDownload = (CoreDownload) null;
         }
         else if (this.TipoFile == CoreDownload.Tipo.Foto)
         {
           coreDownload = this;
           StorageFolder storageFolder = coreDownload.storageFolder;
-          coreDownload.storageFolder = (StorageFolder) await App.localFolder.GetItemAsync(App.picturFolder);
+          coreDownload.storageFolder = (StorageFolder) 
+                        await App.localFolder.GetItemAsync(App.picturFolder);
           coreDownload = (CoreDownload) null;
           coreDownload = this;
           StorageFile imgFil = coreDownload.imgFil;
-          coreDownload.imgFil = await this.storageFolder.CreateFileAsync(this.Titolo + ".png", (CreationCollisionOption) 1);
+          coreDownload.imgFil = await this.storageFolder.CreateFileAsync(
+              this.Titolo + ".png", (CreationCollisionOption) 1);
           coreDownload = (CoreDownload) null;
           coreDownload = this;
           FileRandomAccessStream fs = coreDownload.fs;
-          coreDownload.fs = (FileRandomAccessStream) await this.imgFil.OpenAsync((FileAccessMode) 1);
+          coreDownload.fs = (FileRandomAccessStream) 
+                        await this.imgFil.OpenAsync((FileAccessMode) 1);
           coreDownload = (CoreDownload) null;
         }
         this.LunghezzaTotale = checked ((int) this.response.Content.Headers.ContentLength.Value);
@@ -306,7 +326,8 @@ namespace TubeFree8_1
         while (true)
         {
           IBuffer source = (IBuffer) new Buffer(126334U);
-          source = await this.inputStream.ReadAsync(source, source.Capacity, (InputStreamOptions) 0);
+          source = await this.inputStream.ReadAsync(
+              source, source.Capacity, (InputStreamOptions) 0);
           if (source.Length != 0U)
           {
             checked { num += (ulong) source.Length; }
@@ -314,7 +335,8 @@ namespace TubeFree8_1
             Decimal d;
             try
             {
-              d = Decimal.Divide(Decimal.Multiply(new Decimal(num), 100M), new Decimal(this.LunghezzaTotale));
+              d = Decimal.Divide(Decimal.Multiply(new Decimal(num), 100M),
+                  new Decimal(this.LunghezzaTotale));
             }
             catch (Exception ex)
             {
@@ -347,10 +369,13 @@ namespace TubeFree8_1
         ProjectData.ClearProjectError();
       }
       ((Collection<CoreDownload>) App.listaDownloading).Remove(this);
-      // ISSUE: reference to a compiler-generated field
-      CoreDownload.FinitoEventHandler finitoEvent1 = this.FinitoEvent;
-      if (finitoEvent1 != null)
-        finitoEvent1(this);
+      
+        //TODO
+        // ISSUE: reference to a compiler-generated field
+        //CoreDownload.FinitoEventHandler finitoEvent1 = this.FinitoEvent;      
+        //if (finitoEvent1 != null)
+        //  finitoEvent1(this);
+      
       App.downloading = false;
     }
 
@@ -371,21 +396,25 @@ namespace TubeFree8_1
         this.imgFil = (StorageFile) null;
         ((Collection<CoreDownload>) App.listaDownloading).Remove(this);
         App.downloading = false;
+        
+        //TODO        
         // ISSUE: reference to a compiler-generated field
-        CoreDownload.FinitoEventHandler finitoEvent = this.FinitoEvent;
-        if (finitoEvent == null)
-          return;
-        finitoEvent(this);
+        //CoreDownload.FinitoEventHandler finitoEvent = this.FinitoEvent;
+        //if (finitoEvent == null)
+        //  return;
+        //finitoEvent(this);
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
         ((Collection<CoreDownload>) App.listaDownloading).Remove(this);
         App.downloading = false;
+        
+        //TODO        
         // ISSUE: reference to a compiler-generated field
-        CoreDownload.FinitoEventHandler finitoEvent = this.FinitoEvent;
-        if (finitoEvent != null)
-          finitoEvent(this);
+        //CoreDownload.FinitoEventHandler finitoEvent = this.FinitoEvent;
+        //if (finitoEvent != null)
+        //  finitoEvent(this);
         ProjectData.ClearProjectError();
       }
     }
